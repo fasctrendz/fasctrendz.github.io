@@ -27,4 +27,4 @@ with open(output_path, 'w') as f:
     for word, freq in word_freq.items():
         f.write(f"{word.upper()};{freq}\n")
 
-print(f"Output saved to: {output_path}"
+print(f"Output saved to: {output_path}")
