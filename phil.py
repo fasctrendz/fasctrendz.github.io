@@ -22,6 +22,9 @@ for word in words_list:
     word_freq[word] = freq
 
 # Export results to finn.txt
-with open('finn.txt', 'w') as f:
+output_path = 'finn.txt'
+with open(output_path, 'w') as f:
     for word, freq in word_freq.items():
         f.write(f"{word.upper()};{freq}\n")
+
+print(f"Output saved to: {output_path}"
