@@ -25,9 +25,17 @@ for word in words_list:
 
 # Export results to .github/workflows/finn.txt
 output_path = os.path.join('.github', 'workflows', 'finn.txt')
-with open(output_path, 'w') as f:
-    for word, freq in word_freq.items():
-        f.write(f"{word.upper()};{freq}\n")
+try:
+    with open(output_path, 'w') as f:
+        for word, freq in word_freq.items():
+            f.write(f"{word.upper()};{freq}\n")
+    print("File 'finn.txt' created successfully.")
+except Exception as e:
+    print(f"Error creating 'finn.txt': {e}")
 
 # Set permissions for the file
-os.chmod(output_path, stat.S_IRWXU | stat.S_IRWXG | stat.S_IROTH | stat.S_IXOTH)
+try:
+    os.chmod(output_path, stat.S_IRWXU | stat.S_IRWXG | stat.S_IROTH | stat.S_IXOTH)
+    print("Permissions set for 'finn.txt'.")
+except Exception as e:
+    print(f"Error setting permissions for 'finn.txt': {e}")
