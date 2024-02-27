@@ -22,7 +22,7 @@ for word in words_list:
     word_freq[word] = freq
 
 # Export results to finn.txt
-output_path = '..fasctrendz.github.io/finn.txt'
+output_path = '../fasctrendz.github.io/assets/finn.txt'
 with open(output_path, 'w') as f:
     for word, freq in word_freq.items():
         f.write(f"{word.upper()};{freq}\n")
