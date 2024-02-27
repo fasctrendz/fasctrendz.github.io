@@ -1,5 +1,6 @@
 import json
 import os
+import stat
 
 # Load the word list
 with open('altogether.txt', 'r') as f:
@@ -27,3 +28,6 @@ output_path = os.path.join('.github', 'workflows', 'finn.txt')
 with open(output_path, 'w') as f:
     for word, freq in word_freq.items():
         f.write(f"{word.upper()};{freq}\n")
+
+# Set permissions for the file
+os.chmod(output_path, stat.S_IRWXU | stat.S_IRWXG | stat.S_IROTH | stat.S_IXOTH)
