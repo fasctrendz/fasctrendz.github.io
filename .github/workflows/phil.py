@@ -1,4 +1,5 @@
 import json
+import os
 
 # Load the word list
 with open('altogether.txt', 'r') as f:
@@ -21,7 +22,8 @@ for word in words_list:
         freq = 5
     word_freq[word] = freq
 
-# Export results to finn.txt
-with open('finn.txt', 'w') as f:
+# Export results to .github/workflows/finn.txt
+output_path = os.path.join('.github', 'workflows', 'finn.txt')
+with open(output_path, 'w') as f:
     for word, freq in word_freq.items():
         f.write(f"{word.upper()};{freq}\n")
